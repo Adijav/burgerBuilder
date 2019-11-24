@@ -1,5 +1,6 @@
 import React from 'react';
 import Aux from '../../..//hoc/Aux';
+import Button from '../../UI/Button/Button';
 
 const OrderSummary = (props) => {
     const ingredientsSummary = Object.keys(props.ingredients)
@@ -20,7 +21,10 @@ const OrderSummary = (props) => {
             <ul>
                 {ingredientsSummary}
             </ul>
-            <p>Continue to checkout</p>
+            <p>Total Price: {props.totalPrice.toFixed(2)}</p>
+            <p>Continue to checkout ?</p>
+            <Button btnType='Danger' clicked={props.closeBackdropModalHandler}>Cancel</Button>
+            <Button btnType='Success' clicked={props.checkoutModalHandler}>Checkout</Button>
         </Aux>
     )
 }
